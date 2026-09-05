@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Salsabil Khoirunisa, Software Developer Portfolio</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          paper: '#F7F7F4',
+          ink: '#26272B',
+          slate: {
+            50:'#F5F6F7',100:'#E7E9EC',200:'#C9CDD3',300:'#A6ACB6',
+            400:'#828A97',500:'#64748B',600:'#4E5C70',700:'#3B4657',
+            800:'#2A3240',900:'#1B212B'
+          },
+          gold: {
+            50:'#FBF6EC',100:'#F3E6C6',200:'#E6CD90',300:'#D6B15E',
+            400:'#C39A3F',500:'#AB8330',600:'#8C6A28',700:'#6E5320'
+          }
+        },
+        fontFamily: {
+          serif: ['Fraunces','serif'],
+          sans: ['Inter','sans-serif'],
+          mono: ['"IBM Plex Mono"','monospace']
+        }
+      }
+    }
+  }
+</script>
+<style>
+  body { background-color: #F7F7F4; }
+  .grid-lines {
+    background-image:
+      linear-gradient(to right, rgba(42,50,64,0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(42,50,64,0.06) 1px, transparent 1px);
+    background-size: 44px 44px;
+  }
+  .placeholder-box {
+    background-image: repeating-linear-gradient(45deg, rgba(100,116,139,0.10) 0px, rgba(100,116,139,0.10) 2px, transparent 2px, transparent 10px);
+  }
+  .img-slot {
+    position: relative;
+    background-color: #EEEEE9;
+  }
+  @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-rise { animation: rise 0.7s ease-out both; }
+  .hero-rise-1 { animation-delay: 0.05s; }
+  .hero-rise-2 { animation-delay: 0.18s; }
+  .hero-rise-3 { animation-delay: 0.30s; }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-rise { animation: none; }
+  }
+  html { scroll-padding-top: 84px; }
+</style>
+</head>
+<body class="font-sans text-slate-800 antialiased">
+
+  <!-- ============ NAV ============ -->
+  <header class="fixed top-0 inset-x-0 z-50 bg-paper/90 backdrop-blur border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-6 flex items-center justify-between h-16">
+      <a href="#" class="font-serif text-lg tracking-tight text-slate-900">Salsabil<span class="text-gold-500">.</span></a>
+      <nav class="hidden md:flex items-center gap-8 text-sm text-slate-600">
+        <a href="#about" class="hover:text-gold-600 transition-colors">About</a>
+        <a href="#experience" class="hover:text-gold-600 transition-colors">Experience</a>
+        <a href="#organization" class="hover:text-gold-600 transition-colors">Organization</a>
+        <a href="#certifications" class="hover:text-gold-600 transition-colors">Certifications</a>
+        <a href="#skills" class="hover:text-gold-600 transition-colors">Skills</a>
+      </nav>
+      <a href="#contact" class="text-sm font-medium border border-slate-800 text-slate-800 px-4 py-2 hover:bg-slate-800 hover:text-paper transition-colors">Contact</a>
+    </div>
+  </header>
+
+  <!-- ============ ABOUT (merged with hero) ============ -->
+  <section id="about" class="relative pt-40 pb-24 px-6 grid-lines overflow-hidden border-t border-slate-200">
+    <div class="max-w-6xl mx-auto relative">
+      <p class="hero-rise hero-rise-1 font-mono text-sm text-gold-600 mb-4">Bachelor of Applied Computer Science · Informatics Engineering</p>
+      <h1 class="hero-rise hero-rise-1 font-serif text-5xl md:text-6xl leading-[1.08] text-slate-900 mb-16">
+        Salsabil Khoirunisa
+      </h1>
+
+      <div class="hero-rise hero-rise-2 grid md:grid-cols-12 gap-12">
+        <div class="md:col-span-4">
+          <div class="img-slot aspect-[3/4] w-full max-w-[250px] mx-auto border border-slate-200" data-src="assets/images/profile.jpg">
+            <div class="img-slot-fallback placeholder-box bg-slate-100 w-full h-full flex items-end p-4">
+              <p class="text-xs font-mono text-slate-500">photo placeholder<br>put profile.jpg in assets/images</p>
+            </div>
+          </div>
+          <dl class="mt-8 space-y-4 text-sm">
+            <div class="flex justify-between border-b border-slate-200 pb-2">
+              <dt class="text-slate-400">Location</dt>
+              <dd class="text-slate-700 text-right">West Bandung, West Java, Indonesia</dd>
+            </div>
+            <div class="flex justify-between border-b border-slate-200 pb-2">
+              <dt class="text-slate-400">Education</dt>
+              <dd class="text-slate-700 text-right">Politeknik Negeri Bandung</dd>
+            </div>
+            <div class="flex justify-between border-b border-slate-200 pb-2">
+              <dt class="text-slate-400">Focus</dt>
+              <dd class="text-slate-700 text-right">Frontend &amp; Full Stack Dev</dd>
+            </div>
+          </dl>
+        </div>
+        <div class="md:col-span-8">
+          <p class="font-mono text-sm text-gold-600 mb-3">About</p>
+          <h2 class="font-serif text-3xl md:text-4xl text-slate-900 mb-6">Learning, building, and improving through every project.</h2>
+          <div class="space-y-5 text-slate-600 leading-relaxed max-w-2xl">
+            <p>
+              I'm a Bachelor of Applied Computer Science graduate from Politeknik Negeri Bandung, with internship
+              experience at technology companies as a Frontend Developer and Full Stack Developer. Along the way
+              I've taken on research and community-service projects as a Software Developer, Software Analyst, and Quality Assurance.
+          </p>
+          <p>
+            I'm committed to a career as a Software Developer, and to steadily improving how I design, and build software solutions.
+          </p>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- ============ EXPERIENCE & PROJECTS ============ -->
+  <section id="experience" class="px-6 py-24 bg-slate-800 text-paper">
+    <div class="max-w-6xl mx-auto">
+      <p class="font-mono text-sm text-gold-400 mb-3">2021 – 2026</p>
+      <h2 class="font-serif text-3xl md:text-4xl mb-16">Experience &amp; Projects</h2>
+
+      <div class="space-y-14">
+
+        <!-- Len -->
+        <div class="grid md:grid-cols-12 gap-8 border-t border-slate-600 pt-10">
+          <div class="md:col-span-3">
+            <p class="font-mono text-xs text-slate-400">Jul 2025 – Oct 2026</p>
+            <h3 class="font-serif text-xl mt-2">Len Innovation Technology</h3>
+            <p class="text-sm text-slate-400 mt-1">Frontend Developer</p>
+          </div>
+          <div class="md:col-span-9 grid sm:grid-cols-2 gap-5">
+            <div class="border border-slate-600 p-5 hover:border-gold-400 transition-colors">
+              <div class="img-slot aspect-video border border-slate-600 mb-4" data-src="assets/images/projects/imss.jpg" data-fit="contain">
+                <div class="img-slot-fallback placeholder-box bg-slate-700/40 w-full h-full flex items-end p-2"><p class="text-[10px] font-mono text-slate-400">project screenshot</p></div>
+              </div>
+              <span class="inline-block font-mono text-xs text-gold-400 border border-gold-600/50 px-2 py-0.5 mb-3">IMSS</span>
+              <p class="text-sm text-slate-300 leading-relaxed">Built frontend interfaces for the Intelligence Maritime Surveillance System using React.js in a Micro Frontend architecture, bundled with Rspack.</p>
+            </div>
+            <div class="border border-slate-600 p-5 hover:border-gold-400 transition-colors">
+              <div class="img-slot aspect-video border border-slate-600 mb-4" data-src="assets/images/projects/minds.jpg" data-fit="contain">
+                <div class="img-slot-fallback placeholder-box bg-slate-700/40 w-full h-full flex items-end p-2"><p class="text-[10px] font-mono text-slate-400">project screenshot</p></div>
+              </div>
+              <span class="inline-block font-mono text-xs text-gold-400 border border-gold-600/50 px-2 py-0.5 mb-3">MINDS</span>
+              <p class="text-sm text-slate-300 leading-relaxed">Built frontend pages for the Multi Intelligence and Decision Support System using Next.js, React.js and Tailwind CSS for intelligence data visualization.</p>
+            </div>
+            <div class="sm:col-span-2 text-sm text-slate-400 leading-relaxed">
+              Connected both apps to backend services over WebSocket for real-time data, worked with gRPC across backend services. 
+              Applied Agile methodology using the Scrum framework throughout the software development process, including sprint planning, daily stand-up, and sprint reviews, to gain an understanding of the complete SDLC in large-scale projects.
+            </div>
+          </div>
+        </div>
+
+        <!-- POLBAN -->
+        <div class="grid md:grid-cols-12 gap-8 border-t border-slate-600 pt-10">
+          <div class="md:col-span-3">
+            <p class="font-mono text-xs text-slate-400">Apr 2025 – Aug 2025</p>
+            <h3 class="font-serif text-xl mt-2">Politeknik Negeri Bandung</h3>
+            <p class="text-sm text-slate-400 mt-1">Full Stack Developer</p>
+          </div>
+          <div class="md:col-span-9 grid sm:grid-cols-2 gap-5">
+            <div class="border border-slate-600 p-5 hover:border-gold-400 transition-colors">
+              <div class="img-slot aspect-video border border-slate-600 mb-4" data-src="assets/images/projects/zaidan.jpg" data-fit="contain">
+                <div class="img-slot-fallback placeholder-box bg-slate-700/40 w-full h-full flex items-end p-2"><p class="text-[10px] font-mono text-slate-400">project screenshot</p></div>
+              </div>
+              <span class="inline-block font-mono text-xs text-gold-400 border border-gold-600/50 px-2 py-0.5 mb-3">Zaidan Educare</span>
+              <p class="text-sm text-slate-300 leading-relaxed">Analyzed, designed and tested the School Education Fund Payment Recording Management System as Software Analyst and Quality Assurance, including software design, UI/UX, relational database modeling, SRS and SDD design, and the creation and execution of test scenarios.</p>
+            </div>
+            <div class="border border-slate-600 p-5 hover:border-gold-400 transition-colors">
+              <div class="img-slot aspect-video border border-slate-600 mb-4" data-src="assets/images/projects/issat-polban.jpg" data-fit="contain">
+                <div class="img-slot-fallback placeholder-box bg-slate-700/40 w-full h-full flex items-end p-2"><p class="text-[10px] font-mono text-slate-400">project screenshot</p></div>
+              </div>
+              <span class="inline-block font-mono text-xs text-gold-400 border border-gold-600/50 px-2 py-0.5 mb-3">ISSAT POLBAN</span>
+              <p class="text-sm text-slate-300 leading-relaxed">Developed the management application for the International Seminar of Science and Applied Technology (ISSAT) POLBAN 2025 using Laravel as a Full Stack Developer, implementing frontend and backend features to support conference management.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- PT Titik Terang -->
+        <div class="grid md:grid-cols-12 gap-8 border-t border-slate-600 pt-10">
+          <div class="md:col-span-3">
+            <p class="font-mono text-xs text-slate-400">Jan 2021 – Mar 2021</p>
+            <h3 class="font-serif text-xl mt-2">PT Titik Terang Teknologi</h3>
+            <p class="text-sm text-slate-400 mt-1">Full Stack Developer</p>
+          </div>
+          <div class="md:col-span-9 grid sm:grid-cols-2 gap-5">
+            <div class="border border-slate-600 p-5 hover:border-gold-400 transition-colors">
+              <div class="img-slot aspect-video border border-slate-600 mb-4" data-src="assets/images/projects/minecourse.jpg" data-fit="contain">
+                <div class="img-slot-fallback placeholder-box bg-slate-700/40 w-full h-full flex items-end p-2"><p class="text-[10px] font-mono text-slate-400">project screenshot</p></div>
+              </div>
+              <span class="inline-block font-mono text-xs text-gold-400 border border-gold-600/50 px-2 py-0.5 mb-3">MineCourse</span>
+              <p class="text-sm text-slate-300 leading-relaxed">Course management web application built with Laravel, supporting administration and data management for IT and non-IT courses.</p>
+            </div>
+            <div class="border border-slate-600 p-5 hover:border-gold-400 transition-colors">
+              <span class="inline-block font-mono text-xs text-gold-400 border border-gold-600/50 px-2 py-0.5 mb-3">School Management App</span>
+              <p class="text-sm text-slate-300 leading-relaxed">Data and activity management system for an Islamic educational institution, with features built on Laravel.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ORGANIZATIONAL EXPERIENCE ============ -->
+  <section id="organization" class="px-6 py-24 border-t border-slate-200">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="font-serif text-3xl md:text-4xl text-slate-900 mb-14">Organizational Experience</h2>
+
+      <div class="space-y-16">
+
+        <!-- Role 1 -->
+        <div class="grid md:grid-cols-12 gap-8">
+          <div class="md:col-span-4">
+            <h3 class="font-serif text-xl text-slate-900">General Treasurer</h3>
+            <p class="text-sm text-slate-500 mt-1">Student Representative Council · 2024</p>
+            <p class="text-xs text-slate-400 mt-1">Computer Engineering Student Association, POLBAN</p>
+            <p class="text-sm text-slate-600 mt-4 leading-relaxed">Managed organizational financial records and budgets, keeping the council's transactions accurate and well organized.</p>
+          </div>
+          <div class="md:col-span-8 grid sm:grid-cols-2 gap-4">
+            <div class="img-slot aspect-[4/3] border border-slate-200" data-src="assets/images/organization/treasurer-1.jpeg">
+              <div class="img-slot-fallback placeholder-box bg-slate-100 w-full h-full flex items-end p-2"><p class="text-[10px] font-mono text-slate-500">activity photo</p></div>
+            </div>
+            <div class="img-slot aspect-[4/3] border border-slate-200" data-src="assets/images/organization/treasurer-2.jpeg">
+              <div class="img-slot-fallback placeholder-box bg-slate-100 w-full h-full flex items-end p-2"><p class="text-[10px] font-mono text-slate-500">activity photo</p></div>
+            </div>
+            <div class="img-slot aspect-[4/3] border border-gold-200 sm:col-span-2" data-src="assets/images/organization/treasurer-certificate.jpg" data-fit="contain">
+              <div class="img-slot-fallback placeholder-box bg-gold-50 w-full h-full flex items-end p-2"><p class="text-[10px] font-mono text-gold-600">certificate</p></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Role 2 -->
+        <div class="grid md:grid-cols-12 gap-8 pt-16 border-t border-slate-200">
+          <div class="md:col-span-4">
+            <h3 class="font-serif text-xl text-slate-900">Junior Staff</h3>
+            <p class="text-sm text-slate-500 mt-1">Supervisory Commission, Student Representative Council · 2023</p>
+            <p class="text-xs text-slate-400 mt-1">Computer Engineering Student Association, POLBAN</p>
+            <p class="text-sm text-slate-600 mt-4 leading-relaxed">Monitored and evaluated organizational activities, ensured compliance with established guidelines, and coordinated with the Supervisory Commission to support effective organizational oversight and improvement.</p>
+          </div>
+          <div class="md:col-span-8 grid sm:grid-cols-2 gap-4">
+            <div class="img-slot aspect-[4/3] border border-slate-200" data-src="assets/images/organization/supervisory-1.jpeg">
+              <div class="img-slot-fallback placeholder-box bg-slate-100 w-full h-full flex items-end p-2"><p class="text-[10px] font-mono text-slate-500">activity photo</p></div>
+            </div>
+            <div class="img-slot aspect-[4/3] border border-slate-200" data-src="assets/images/organization/supervisory-2.jpeg">
+              <div class="img-slot-fallback placeholder-box bg-slate-100 w-full h-full flex items-end p-2"><p class="text-[10px] font-mono text-slate-500">activity photo</p></div>
+            </div>
+            <div class="img-slot aspect-[4/3] border border-gold-200 sm:col-span-2" data-src="assets/images/organization/supervisory-certificate.png" data-fit="contain">
+              <div class="img-slot-fallback placeholder-box bg-gold-50 w-full h-full flex items-end p-2"><p class="text-[10px] font-mono text-gold-600">certificate</p></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Role 3 -->
+        <div class="grid md:grid-cols-12 gap-8 pt-16 border-t border-slate-200">
+          <div class="md:col-span-4">
+            <h3 class="font-serif text-xl text-slate-900">Facilitator</h3>
+            <p class="text-sm text-slate-500 mt-1">PKKMB MANAGHATA · 2023</p>
+            <p class="text-xs text-slate-400 mt-1">Politeknik Negeri Bandung</p>
+            <p class="text-sm text-slate-600 mt-4 leading-relaxed">Accompanied and guided new students throughout the orientation program, supporting their adaptation to campus life and coordinating with committee members and fellow facilitators to ensure smooth and orderly activities.</p>
+          </div>
+          <div class="md:col-span-8 grid sm:grid-cols-2 gap-4">
+            <div class="img-slot aspect-[4/3] border border-slate-200" data-src="assets/images/organization/facilitator-1.jpeg">
+              <div class="img-slot-fallback placeholder-box bg-slate-100 w-full h-full flex items-end p-2"><p class="text-[10px] font-mono text-slate-500">activity photo</p></div>
+            </div>
+            <div class="img-slot aspect-[4/3] border border-slate-200" data-src="assets/images/organization/facilitator-2.jpeg">
+              <div class="img-slot-fallback placeholder-box bg-slate-100 w-full h-full flex items-end p-2"><p class="text-[10px] font-mono text-slate-500">activity photo</p></div>
+            </div>
+            <div class="img-slot aspect-[4/3] border border-gold-200 sm:col-span-2" data-src="assets/images/organization/facilitator-certificate.jpg" data-fit="contain">
+              <div class="img-slot-fallback placeholder-box bg-gold-50 w-full h-full flex items-end p-2"><p class="text-[10px] font-mono text-gold-600">certificate</p></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CERTIFICATIONS ============ -->
+  <section id="certifications" class="px-6 py-24 border-t border-slate-200 bg-slate-50">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="font-serif text-3xl md:text-4xl text-slate-900 mb-14">Certifications</h2>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <div class="bg-paper border border-slate-200 p-5">
+          <div class="img-slot aspect-[3/2] border border-slate-200 mb-4" data-src="assets/images/certificates/sqa-arutala.jpg" data-fit="contain">
+            <div class="img-slot-fallback placeholder-box bg-slate-100 w-full h-full flex items-end p-2"><p class="text-[10px] font-mono text-slate-500">certificate scan</p></div>
+          </div>
+          <h3 class="font-serif text-lg text-slate-900 leading-snug">Junior Software Quality Assurance Certificate</h3>
+          <p class="text-sm text-slate-500 mt-1">Arutala Lab</p>
+          <p class="text-xs font-mono text-gold-600 mt-3">Jul 2026 – Jul 2029</p>
+        </div>
+
+        <div class="bg-paper border border-slate-200 p-5">
+          <div class="img-slot aspect-[3/2] border border-slate-200 mb-4" data-src="assets/images/certificates/zaidan-educare.jpeg" data-fit="contain">
+            <div class="img-slot-fallback placeholder-box bg-slate-100 w-full h-full flex items-end p-2"><p class="text-[10px] font-mono text-slate-500">certificate scan</p></div>
+          </div>
+          <h3 class="font-serif text-lg text-slate-900 leading-snug">Community Service Program: School Education Fund Payment Recording Management</h3>
+          <p class="text-sm text-slate-500 mt-1">Politeknik Negeri Bandung</p>
+          <p class="text-xs font-mono text-gold-600 mt-3">Sep 2025</p>
+        </div>
+
+        <div class="bg-paper border border-slate-200 p-5">
+          <div class="img-slot aspect-[3/4] border border-slate-200 mb-4" data-src="assets/images/certificates/bnsp-web-developer.jpeg" data-fit="contain">
+            <div class="img-slot-fallback placeholder-box bg-slate-100 w-full h-full flex items-end p-2"><p class="text-[10px] font-mono text-slate-500">certificate scan</p></div>
+          </div>
+          <h3 class="font-serif text-lg text-slate-900 leading-snug">BNSP Junior Web Developer Competency Certificate</h3>
+          <p class="text-sm text-slate-500 mt-1">Badan Nasional Sertifikasi Profesi (BNSP)</p>
+          <p class="text-xs font-mono text-gold-600 mt-3">Oct 2023 – Oct 2026</p>
+        </div>
+
+        <div class="bg-paper border border-slate-200 p-5">
+          <div class="img-slot aspect-[3/4] border border-slate-200 mb-4" data-src="assets/images/certificates/web-programming-cgy.jpeg" data-fit="contain">
+            <div class="img-slot-fallback placeholder-box bg-slate-100 w-full h-full flex items-end p-2"><p class="text-[10px] font-mono text-slate-500">certificate scan</p></div>
+          </div>
+          <h3 class="font-serif text-lg text-slate-900 leading-snug">Certification of Competency in Web Programming, Advanced Level</h3>
+          <p class="text-sm text-slate-500 mt-1">PT Cakrawala Global Yeksa (CGY)</p>
+          <p class="text-xs font-mono text-gold-600 mt-3">Jul 2022</p>
+        </div>
+
+        <div class="bg-paper border border-slate-200 p-5">
+          <div class="img-slot aspect-[3/2] border border-slate-200 mb-4" data-src="assets/images/certificates/internship-titik-terang.jpeg" data-fit="contain">
+            <div class="img-slot-fallback placeholder-box bg-slate-100 w-full h-full flex items-end p-2"><p class="text-[10px] font-mono text-slate-500">certificate scan</p></div>
+          </div>
+          <h3 class="font-serif text-lg text-slate-900 leading-snug">Full Stack Developer Internship Certificate</h3>
+          <p class="text-sm text-slate-500 mt-1">PT Titik Terang Teknologi</p>
+          <p class="text-xs font-mono text-gold-600 mt-3">Jan 2021 – Mar 2021</p>
+        </div>
+
+        <div class="bg-paper border border-slate-200 p-5">
+          <div class="img-slot aspect-[3/2] border border-slate-200 mb-4" data-src="assets/images/certificates/internship-len.jpg" data-fit="contain">
+            <div class="img-slot-fallback placeholder-box bg-slate-100 w-full h-full flex items-end p-2"><p class="text-[10px] font-mono text-slate-500">certificate scan</p></div>
+          </div>
+          <h3 class="font-serif text-lg text-slate-900 leading-snug">Frontend Developer Internship Certificate</h3>
+          <p class="text-sm text-slate-500 mt-1">Len Innovation Technology</p>
+          <p class="text-xs font-mono text-gold-600 mt-3">Jul 2025 – Oct 2026</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SKILLS ============ -->
+  <section id="skills" class="px-6 py-24 border-t border-slate-200">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="font-serif text-3xl md:text-4xl text-slate-900 mb-14">My Skills</h2>
+
+      <div class="grid md:grid-cols-2 gap-12">
+        <div>
+          <h3 class="text-sm text-slate-400 mb-4">Programming languages &amp; frameworks</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="font-mono text-sm border border-slate-300 text-slate-700 px-3 py-1.5">JavaScript</span>
+            <span class="font-mono text-sm border border-slate-300 text-slate-700 px-3 py-1.5">TypeScript</span>
+            <span class="font-mono text-sm border border-slate-300 text-slate-700 px-3 py-1.5">PHP</span>
+            <span class="font-mono text-sm border border-slate-300 text-slate-700 px-3 py-1.5">React.js</span>
+            <span class="font-mono text-sm border border-slate-300 text-slate-700 px-3 py-1.5">Next.js</span>
+            <span class="font-mono text-sm border border-slate-300 text-slate-700 px-3 py-1.5">Laravel</span>
+            <span class="font-mono text-sm border border-slate-300 text-slate-700 px-3 py-1.5">CodeIgniter</span>
+            <span class="font-mono text-sm border border-slate-300 text-slate-700 px-3 py-1.5">Tailwind CSS</span>
+          </div>
+
+          <h3 class="text-sm text-slate-400 mb-4 mt-10">Hard skills</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="font-mono text-sm border border-slate-300 text-slate-700 px-3 py-1.5">Software Development</span>
+            <span class="font-mono text-sm border border-slate-300 text-slate-700 px-3 py-1.5">Web Development</span>
+            <span class="font-mono text-sm border border-slate-300 text-slate-700 px-3 py-1.5">Frontend Development</span>
+            <span class="font-mono text-sm border border-slate-300 text-slate-700 px-3 py-1.5">Software Analysis</span>
+            <span class="font-mono text-sm border border-slate-300 text-slate-700 px-3 py-1.5">Software Testing</span>
+            <span class="font-mono text-sm border border-slate-300 text-slate-700 px-3 py-1.5">UI/UX Design</span>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-sm text-slate-400 mb-4">Development concepts &amp; tools</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="text-sm bg-slate-800 text-paper px-3 py-1.5">OOP</span>
+            <span class="text-sm bg-slate-800 text-paper px-3 py-1.5">RESTful API</span>
+            <span class="text-sm bg-slate-800 text-paper px-3 py-1.5">WebSockets</span>
+            <span class="text-sm bg-slate-800 text-paper px-3 py-1.5">gRPC</span>
+            <span class="text-sm bg-slate-800 text-paper px-3 py-1.5">Git / Version Control</span>
+            <span class="text-sm bg-slate-800 text-paper px-3 py-1.5">Database Systems</span>
+            <span class="text-sm bg-slate-800 text-paper px-3 py-1.5">Micro-frontend Architecture</span>
+            <span class="text-sm bg-slate-800 text-paper px-3 py-1.5">Zustand</span>
+            <span class="text-sm bg-slate-800 text-paper px-3 py-1.5">React Hooks &amp; Lifecycle</span>
+          </div>
+
+          <h3 class="text-sm text-slate-400 mb-4 mt-10">Soft skills</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="text-sm text-gold-700 border border-gold-300 bg-gold-50 px-3 py-1.5">Problem Solving</span>
+            <span class="text-sm text-gold-700 border border-gold-300 bg-gold-50 px-3 py-1.5">Analytical Thinking</span>
+            <span class="text-sm text-gold-700 border border-gold-300 bg-gold-50 px-3 py-1.5">Teamwork</span>
+            <span class="text-sm text-gold-700 border border-gold-300 bg-gold-50 px-3 py-1.5">Communication</span>
+            <span class="text-sm text-gold-700 border border-gold-300 bg-gold-50 px-3 py-1.5">Time Management</span>
+            <span class="text-sm text-gold-700 border border-gold-300 bg-gold-50 px-3 py-1.5">Adaptability</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" class="px-6 py-24 border-t border-slate-200">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-12 gap-10 items-end">
+      <div class="md:col-span-7">
+        <p class="font-mono text-sm text-gold-600 mb-3">Let's work together</p>
+        <h2 class="font-serif text-3xl md:text-5xl text-slate-900 leading-tight">
+          Open to Software Developer roles.
+        </h2>
+      </div>
+      <div class="md:col-span-5 space-y-4 text-sm">
+        <a href="mailto:salsabilkhoirunisa271@gmail.com" class="flex justify-between items-center border-b border-slate-300 pb-3 group">
+          <span class="text-slate-400">Email</span>
+          <span class="text-blue-800 group-hover:text-blue-300 transition-colors">salsabilkhoirunisa271@gmail.com</span>
+        </a>
+        <a class="flex justify-between items-center border-b border-slate-300 pb-3 group">
+          <span class="text-slate-400">Phone</span>
+          <span class="text-slate-800 group-hover:text-gold-600 transition-colors">+62 831-2895-3441</span>
+        </a>
+        <a href="https://linkedin.com/in/salsabil-khoirunisa-39586320a/" target="_blank" class="flex justify-between items-center border-b border-slate-300 pb-3 group">
+          <span class="text-slate-400">LinkedIn</span>
+          <span class="text-blue-800 group-hover:text-blue-300 transition-colors">salsabil-khoirunisa</span>
+        </a>
+        <a href="https://github.com/salsabilk" target="_blank" class="flex justify-between items-center border-b border-slate-300 pb-3 group">
+          <span class="text-slate-400">GitHub</span>
+          <span class="text-blue-800 group-hover:text-blue-300 transition-colors">salsabilk</span>
+        </a>
+        <div class="flex justify-between items-center pb-3">
+          <span class="text-slate-400">Location</span>
+          <span class="text-slate-800">West Bandung, Indonesia</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="px-6 py-8 border-t border-slate-200 text-center text-xs text-slate-400">
+    © 2026 Salsabil Khoirunisa
+  </footer>
+
+  <script>
+    // Auto-load photos: for every .img-slot with a data-src, try to load that
+    // image. If it exists, show it as the background. If not, the dashed
+    // placeholder underneath stays visible. No HTML editing needed —
+    // just drop a file with the matching name into assets/images/.
+    document.querySelectorAll('.img-slot[data-src]').forEach(function (slot) {
+      var src = slot.getAttribute('data-src');
+      var fit = slot.getAttribute('data-fit') || 'cover';
+      var probe = new Image();
+      probe.onload = function () {
+        slot.style.backgroundImage = 'url(' + src + ')';
+        slot.style.backgroundSize = fit;
+        slot.style.backgroundPosition = 'center';
+        slot.style.backgroundRepeat = 'no-repeat';
+        var fallback = slot.querySelector('.img-slot-fallback');
+        if (fallback) fallback.remove();
+      };
+      probe.src = src;
+    });
+  </script>
+</body>
+</html>
