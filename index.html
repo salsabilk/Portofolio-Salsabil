@@ -48,6 +48,180 @@
     position: relative;
     background-color: #EEEEE9;
   }
+
+  /* Experience & Projects gallery */
+  .project-card {
+    background: rgba(27, 33, 43, 0.42);
+    border: 1px solid #3B4657;
+    transition: border-color 0.25s ease, transform 0.25s ease;
+  }
+
+  .project-card:hover {
+    border-color: #C39A3F;
+    transform: translateY(-2px);
+  }
+
+  .project-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .project-gallery.gallery-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .project-gallery.gallery-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .project-image-frame {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 220px;
+    padding: 0.65rem;
+    overflow: hidden;
+    background: #1B212B;
+    border: 1px solid #3B4657;
+  }
+
+  .project-image-frame img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    max-height: 560px;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  .project-image-frame.portrait {
+    grid-column: 1 / -1;
+    width: min(100%, 360px);
+    justify-self: center;
+    min-height: 360px;
+  }
+
+  .project-image-frame.portrait img {
+    width: auto;
+    max-width: 100%;
+    max-height: 620px;
+  }
+
+  .project-description {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+  }
+
+  /* Keep bullet markers clean while allowing description text to span the card. */
+  .project-description li {
+    padding-left: 0.15rem;
+  }
+
+
+  /* Certifications layout */
+  .certifications-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .certificate-card {
+    width: calc(25% - 0.75rem);
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .certificate-image {
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #1B212B;
+  }
+
+  .certificate-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+  }
+
+  .certificate-card {
+    border: 1px solid #3B4657;
+    transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .certificate-card:hover,
+  .certificate-card:focus-within {
+    border-color: #C39A3F;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(195, 154, 63, 0.08);
+  }
+
+  .certificate-card h3 {
+    min-height: 3.5rem;
+  }
+
+  .certificate-card p:last-child {
+    margin-top: auto;
+  }
+
+  @media (max-width: 1100px) {
+    .certificate-card {
+      width: calc(33.333% - 0.667rem);
+    }
+  }
+  @media (max-width: 900px) {
+    .project-gallery,
+    .project-gallery.gallery-2,
+    .project-gallery.gallery-4 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .project-image-frame {
+      min-height: 190px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .certificate-card {
+      width: 100%;
+    }
+
+    .certificate-image {
+      height: auto;
+      min-height: 220px;
+    }
+
+    .certificate-card h3 {
+      min-height: 0;
+    }
+    .project-gallery,
+    .project-gallery.gallery-2,
+    .project-gallery.gallery-4 {
+      grid-template-columns: 1fr;
+    }
+
+    .project-image-frame,
+    .project-image-frame.portrait {
+      grid-column: auto;
+      width: 100%;
+      min-height: 0;
+    }
+
+    .project-image-frame img,
+    .project-image-frame.portrait img {
+      max-height: none;
+    }
+  }
+
   @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
   .hero-rise { animation: rise 0.7s ease-out both; }
   .hero-rise-1 { animation-delay: 0.05s; }
@@ -57,6 +231,12 @@
     .hero-rise { animation: none; }
   }
   html { scroll-padding-top: 84px; }
+
+  /* Organizational Experience descriptions */
+  .organization-description {
+    text-align: justify;
+    text-justify: inter-word;
+  }
 </style>
 </head>
 <body class="font-sans text-slate-800 antialiased">
@@ -130,87 +310,212 @@
       <p class="font-mono text-sm text-gold-400 mb-3">2021 – 2026</p>
       <h2 class="font-serif text-3xl md:text-4xl mb-16">Experience &amp; Projects</h2>
 
-      <div class="space-y-14">
+      <!-- Each experience is separated vertically.
+           Projects are never forced into the same row. -->
 
-        <!-- Len -->
-        <div class="grid md:grid-cols-12 gap-8 border-t border-slate-600 pt-10">
-          <div class="md:col-span-3">
+      <div class="space-y-24">
+
+        <!-- ===== Len Innovation Technology ===== -->
+        <article class="border-t border-slate-600 pt-10">
+          <header class="mb-10">
             <p class="font-mono text-xs text-slate-400">Jul 2025 – Oct 2025</p>
-            <h3 class="font-serif text-xl mt-2">Len Innovation Technology</h3>
+            <h3 class="font-serif text-2xl md:text-3xl mt-2">Len Innovation Technology</h3>
             <p class="text-sm text-slate-400 mt-1">Frontend Developer</p>
-          </div>
-          <div class="md:col-span-9 grid sm:grid-cols-2 gap-5">
-            <div class="border border-slate-600 p-5 hover:border-gold-400 transition-colors">
-              <div class="img-slot aspect-video border border-slate-600 mb-4" data-src="assets/images/projects/imss.jpg" data-fit="contain">
-                <div class="img-slot-fallback placeholder-box bg-slate-700/40 w-full h-full flex items-end p-2"><p class="text-[10px] font-mono text-slate-400">project screenshot</p></div>
-              </div>
-              <span class="inline-block font-mono text-xs text-gold-400 border border-gold-600/50 px-2 py-0.5 mb-3">IMSS</span>
-              <p class="text-sm text-slate-300 leading-relaxed">Built frontend interfaces for the Intelligence Maritime Surveillance System using React.js in a Micro Frontend architecture, bundled with Rspack.</p>
-            </div>
-            <div class="border border-slate-600 p-5 hover:border-gold-400 transition-colors">
-              <div class="img-slot aspect-video border border-slate-600 mb-4" data-src="assets/images/projects/minds.jpg" data-fit="contain">
-                <div class="img-slot-fallback placeholder-box bg-slate-700/40 w-full h-full flex items-end p-2"><p class="text-[10px] font-mono text-slate-400">project screenshot</p></div>
-              </div>
-              <span class="inline-block font-mono text-xs text-gold-400 border border-gold-600/50 px-2 py-0.5 mb-3">MINDS</span>
-              <p class="text-sm text-slate-300 leading-relaxed">Built frontend pages for the Multi Intelligence and Decision Support System using Next.js, React.js and Tailwind CSS for intelligence data visualization.</p>
-            </div>
-            <div class="sm:col-span-2 text-sm text-slate-400 leading-relaxed">
-              Connected both apps to backend services over WebSocket for real-time data, worked with gRPC across backend services. 
-              Applied Agile methodology using the Scrum framework throughout the software development process, including sprint planning, daily stand-up, and sprint reviews, to gain an understanding of the complete SDLC in large-scale projects.
-            </div>
-          </div>
-        </div>
+          </header>
 
-        <!-- POLBAN -->
-        <div class="grid md:grid-cols-12 gap-8 border-t border-slate-600 pt-10">
-          <div class="md:col-span-3">
+          <div class="space-y-12">
+
+            <!-- IMSS -->
+            <article class="project-card p-5 md:p-7">
+              <div class="flex flex-wrap items-center gap-3 mb-6">
+                <span class="font-mono text-xs text-gold-400 border border-gold-600/50 px-2.5 py-1">IMSS</span>
+                <span class="text-xs text-slate-400">Intelligence Maritime Surveillance System</span>
+              </div>
+
+              <div class="project-gallery gallery-2 mb-7">
+                <figure class="project-image-frame">
+                  <img src="assets/images/projects/imss-1.jpg" alt="IMSS project interface screenshot 1" loading="lazy">
+                </figure>
+                <figure class="project-image-frame">
+                  <img src="assets/images/projects/imss-2.jpeg" alt="IMSS project interface screenshot 2" loading="lazy">
+                </figure>
+              </div>
+
+              <ul class="project-description text-sm text-slate-300 leading-relaxed list-disc list-outside pl-5 space-y-2">
+                <li>Developed Object &amp; Anomaly Detection System using React and Micro Frontend architecture.</li>
+                <li>Implemented AOI Management for creating and managing maritime surveillance areas.</li>
+                <li>Integrated AOI with interactive map visualization using OpenLayers.</li>
+              </ul>
+            </article>
+
+            <!-- MINDS -->
+            <article class="project-card p-5 md:p-7">
+              <div class="flex flex-wrap items-center gap-3 mb-6">
+                <span class="font-mono text-xs text-gold-400 border border-gold-600/50 px-2.5 py-1">MINDS</span>
+                <span class="text-xs text-slate-400">Multi Intelligence and Decision Support System</span>
+              </div>
+
+              <div class="project-gallery gallery-2 mb-7">
+                <figure class="project-image-frame">
+                  <img src="assets/images/projects/minds-1.jpg" alt="MINDS project interface screenshot 1" loading="lazy">
+                </figure>
+                <figure class="project-image-frame">
+                  <img src="assets/images/projects/minds-2.jpeg" alt="MINDS project interface screenshot 2" loading="lazy">
+                </figure>
+              </div>
+
+              <ul class="project-description text-sm text-slate-300 leading-relaxed list-disc list-outside pl-5 space-y-2">
+                <li>Developed Main Dashboard, OSINT, and HUMINT/BHI frontend features using Next.js, React, and Tailwind CSS.</li>
+                <li>Built interactive dashboards with ApexCharts, filtering, tables, and component-driven architecture.</li>
+                <li>Integrated frontend with Supabase and API services, using Zustand for state management.</li>
+              </ul>
+            </article>
+          </div>
+        </article>
+
+        <!-- ===== POLBAN — Zaidan Educare ===== -->
+        <article class="border-t border-slate-600 pt-10">
+          <header class="mb-10">
             <p class="font-mono text-xs text-slate-400">Apr 2025 – Aug 2025</p>
-            <h3 class="font-serif text-xl mt-2">Politeknik Negeri Bandung</h3>
-            <p class="text-sm text-slate-400 mt-1">Full Stack Developer</p>
-          </div>
-          <div class="md:col-span-9 grid sm:grid-cols-2 gap-5">
-            <div class="border border-slate-600 p-5 hover:border-gold-400 transition-colors">
-              <div class="img-slot aspect-video border border-slate-600 mb-4" data-src="assets/images/projects/zaidan.jpg" data-fit="contain">
-                <div class="img-slot-fallback placeholder-box bg-slate-700/40 w-full h-full flex items-end p-2"><p class="text-[10px] font-mono text-slate-400">project screenshot</p></div>
-              </div>
-              <span class="inline-block font-mono text-xs text-gold-400 border border-gold-600/50 px-2 py-0.5 mb-3">Zaidan Educare</span>
-              <p class="text-sm text-slate-300 leading-relaxed">Analyzed, designed and tested the School Education Fund Payment Recording Management System as Software Analyst and Quality Assurance, including software design, UI/UX, relational database modeling, SRS and SDD design, and the creation and execution of test scenarios.</p>
-            </div>
-            <div class="border border-slate-600 p-5 hover:border-gold-400 transition-colors">
-              <div class="img-slot aspect-video border border-slate-600 mb-4" data-src="assets/images/projects/issat-polban.jpg" data-fit="contain">
-                <div class="img-slot-fallback placeholder-box bg-slate-700/40 w-full h-full flex items-end p-2"><p class="text-[10px] font-mono text-slate-400">project screenshot</p></div>
-              </div>
-              <span class="inline-block font-mono text-xs text-gold-400 border border-gold-600/50 px-2 py-0.5 mb-3">ISSAT POLBAN</span>
-              <p class="text-sm text-slate-300 leading-relaxed">Developed the management application for the International Seminar of Science and Applied Technology (ISSAT) POLBAN 2025 using Laravel as a Full Stack Developer, implementing frontend and backend features to support conference management.</p>
-            </div>
-          </div>
-        </div>
+            <h3 class="font-serif text-2xl md:text-3xl mt-2">Politeknik Negeri Bandung</h3>
+            <p class="text-sm text-slate-400 mt-1">Freelance - Software Analyst and Quality Assurance</p>
+          </header>
 
-        <!-- PT Titik Terang -->
-        <div class="grid md:grid-cols-12 gap-8 border-t border-slate-600 pt-10">
-          <div class="md:col-span-3">
+          <article class="project-card p-5 md:p-7">
+            <div class="flex flex-wrap items-center gap-3 mb-6">
+              <span class="font-mono text-xs text-gold-400 border border-gold-600/50 px-2.5 py-1">Zaidan Educare</span>
+              <span class="text-xs text-slate-400">School Education Fund Payment Recording Management System</span>
+            </div>
+
+            <div class="project-gallery mb-7">
+              <figure class="project-image-frame">
+                <img src="assets/images/projects/zaidan-1.jpg" alt="Zaidan Educare project document screenshot" loading="lazy">
+              </figure>
+                <figure class="project-image-frame">
+                <img src="assets/images/projects/zaidan-2.jpg" alt="Zaidan Educare application interface screenshot" loading="lazy">
+              </figure>
+              <figure class="project-image-frame">
+                <img src="assets/images/projects/zaidan-3.jpeg" alt="Zaidan Educare video meeting interface screenshot" loading="lazy">
+              </figure>
+              <figure class="project-image-frame portrait">
+                <img src="assets/images/projects/zaidan-4.jpeg" alt="Zaidan Educare application guide" loading="lazy">
+              </figure>
+            </div>
+
+            <ul class="project-description text-sm text-slate-300 leading-relaxed list-disc list-outside pl-5 space-y-2">
+              <li>Analyzed and designed a School Education Fund Payment Recording Management System for Zaidan Educare as a Software Analyst.</li>
+              <li>Designed UI/UX, software architecture, and relational database models based on system requirements.</li>
+              <li>Prepared SRS and SDD documents to define system requirements and software design.</li>
+              <li>Developed and executed functional test scenarios as Quality Assurance to validate system functionality.</li>
+            </ul>
+          </article>
+        </article>
+
+        <!-- ===== POLBAN — ISSAT / SubMeet ===== -->
+        <article class="border-t border-slate-600 pt-10">
+          <header class="mb-10">
+            <p class="font-mono text-xs text-slate-400">Apr 2025 – Aug 2025</p>
+            <h3 class="font-serif text-2xl md:text-3xl mt-2">Politeknik Negeri Bandung</h3>
+            <p class="text-sm text-slate-400 mt-1">Freelance - Full Stack Developer</p>
+          </header>
+
+          <article class="project-card p-5 md:p-7">
+            <div class="flex flex-wrap items-center gap-3 mb-6">
+              <span class="font-mono text-xs text-gold-400 border border-gold-600/50 px-2.5 py-1">ISSAT POLBAN</span>
+              <span class="text-xs text-slate-400">International Seminar of Science and Applied Technology</span>
+            </div>
+
+            <div class="project-gallery gallery-4 mb-7">
+              <figure class="project-image-frame">
+                <img src="assets/images/projects/submeet-1.jpeg" alt="ISSAT POLBAN SubMeet interface screenshot 1" loading="lazy">
+              </figure>
+              <figure class="project-image-frame">
+                <img src="assets/images/projects/submeet-2.jpeg" alt="ISSAT POLBAN SubMeet interface screenshot 2" loading="lazy">
+              </figure>
+              <figure class="project-image-frame">
+                <img src="assets/images/projects/submeet-3.jpg" alt="ISSAT POLBAN SubMeet interface screenshot 3" loading="lazy">
+              </figure>
+              <figure class="project-image-frame">
+                <img src="assets/images/projects/submeet-4.jpg" alt="ISSAT POLBAN SubMeet interface screenshot 4" loading="lazy">
+              </figure>
+            </div>
+
+            <ul class="project-description text-sm text-slate-300 leading-relaxed list-disc list-outside pl-5 space-y-2">
+              <li>Developed SubMeet, a conference management system for the International Seminar of Science and Applied Technology (ISSAT) POLBAN 2025, using Laravel as a Full Stack Developer.</li>
+              <li>Implemented and developed frontend and backend features to support paper submission, review management, and conference administration.</li>
+            </ul>
+          </article>
+        </article>
+
+        <!-- ===== FINAL ASSIGNMENT ===== -->
+        <article class="border-t border-slate-600 pt-10">
+          <header class="mb-10">
+            <p class="font-mono text-xs text-slate-400">Final Assignment</p>
+            <h3 class="font-serif text-2xl md:text-3xl mt-2">Integration of BERT, Conflict of Interest Filter, and Greedy Heuristic Algorithm for Reviewer Assignment Problem Solving</h3>
+          </header>
+
+          <article class="project-card p-5 md:p-7">
+            <div class="flex flex-wrap items-center gap-3 mb-6">
+              <span class="font-mono text-xs text-gold-400 border border-gold-600/50 px-2.5 py-1">Final Assignment</span>
+              <span class="text-xs text-slate-400">Reviewer Assignment Problem</span>
+            </div>
+
+            <div class="project-gallery mb-7">
+              <figure class="project-image-frame">
+                <img src="assets/images/projects/final-assignment-1.png" alt="Final Assignment reviewer assignment system interface screenshot 1" loading="lazy">
+              </figure>
+              <figure class="project-image-frame">
+                <img src="assets/images/projects/final-assignment-2.jpeg" alt="Final Assignment reviewer assignment system interface screenshot 2" loading="lazy">
+              </figure>
+              <figure class="project-image-frame">
+                <img src="assets/images/projects/final-assignment-3.jpg" alt="Final Assignment reviewer assignment system interface screenshot 2" loading="lazy">
+              </figure>
+            </div>
+
+            <ul class="project-description text-sm text-slate-300 leading-relaxed list-disc list-outside pl-5 space-y-2">
+              <li>Developed an NLP-based system to automate the assignment of conference manuscripts to suitable reviewers in SubMeet, in collaboration with the Research and Community Service Center (P3M) of Politeknik Negeri Bandung.</li>
+              <li>Utilized BERT to assess the relevance between manuscript topics and reviewers areas of expertise, while implementing Conflict of Interest checks and reviewer workload limits.</li>
+              <li>Developed the reviewer assignment process using a Greedy Heuristic algorithm to produce relevant reviewer assignments while maintaining workload constraints.</li>
+            </ul>
+          </article>
+        </article>
+
+        <!-- ===== PT Titik Terang Teknologi ===== -->
+        <article class="border-t border-slate-600 pt-10">
+          <header class="mb-10">
             <p class="font-mono text-xs text-slate-400">Jan 2021 – Mar 2021</p>
-            <h3 class="font-serif text-xl mt-2">PT Titik Terang Teknologi</h3>
+            <h3 class="font-serif text-2xl md:text-3xl mt-2">PT Titik Terang Teknologi</h3>
             <p class="text-sm text-slate-400 mt-1">Full Stack Developer</p>
+          </header>
+
+          <div class="space-y-10">
+
+            <article class="project-card p-5 md:p-7">
+              <span class="inline-block font-mono text-xs text-gold-400 border border-gold-600/50 px-2.5 py-1 mb-6">MineCourse</span>
+
+              <figure class="project-image-frame w-full md:max-w-xs mb-7">
+                <img src="assets/images/projects/minecourse.jpg" alt="MineCourse project screenshot" loading="lazy">
+              </figure>
+
+              <ul class="project-description text-sm text-slate-300 leading-relaxed list-disc list-outside pl-5 space-y-2">
+                <li>Developed the Management Courses web application using Laravel to support the management of various IT and non-IT courses, including course administration and data management.</li>
+              </ul>
+            </article>
+
+            <article class="project-card p-5 md:p-7">
+              <span class="inline-block font-mono text-xs text-gold-400 border border-gold-600/50 px-2.5 py-1 mb-6">School Management App</span>
+              <ul class="project-description text-sm text-slate-300 leading-relaxed list-disc list-outside pl-5 space-y-2">
+                <li>Developed a school management application for an Islamic educational institution using Laravel to support the management of school data and activities.</li>
+              </ul>
+            </article>
+
           </div>
-          <div class="md:col-span-9 grid sm:grid-cols-2 gap-5">
-            <div class="border border-slate-600 p-5 hover:border-gold-400 transition-colors">
-              <div class="img-slot aspect-video border border-slate-600 mb-4" data-src="assets/images/projects/minecourse.jpg" data-fit="contain">
-                <div class="img-slot-fallback placeholder-box bg-slate-700/40 w-full h-full flex items-end p-2"><p class="text-[10px] font-mono text-slate-400">project screenshot</p></div>
-              </div>
-              <span class="inline-block font-mono text-xs text-gold-400 border border-gold-600/50 px-2 py-0.5 mb-3">MineCourse</span>
-              <p class="text-sm text-slate-300 leading-relaxed">Course management web application built with Laravel, supporting administration and data management for IT and non-IT courses.</p>
-            </div>
-            <div class="border border-slate-600 p-5 hover:border-gold-400 transition-colors">
-              <span class="inline-block font-mono text-xs text-gold-400 border border-gold-600/50 px-2 py-0.5 mb-3">School Management App</span>
-              <p class="text-sm text-slate-300 leading-relaxed">Data and activity management system for an Islamic educational institution, with features built on Laravel.</p>
-            </div>
-          </div>
-        </div>
+        </article>
 
       </div>
     </div>
   </section>
+
 
   <!-- ============ ORGANIZATIONAL EXPERIENCE ============ -->
   <section id="organization" class="px-6 py-24 border-t border-slate-200">
@@ -225,7 +530,7 @@
             <h3 class="font-serif text-xl text-slate-900">General Treasurer</h3>
             <p class="text-sm text-slate-500 mt-1">Student Representative Council · 2024</p>
             <p class="text-xs text-slate-400 mt-1">Computer Engineering Student Association, POLBAN</p>
-            <p class="text-sm text-slate-600 mt-4 leading-relaxed">Managed organizational financial records and budgets, keeping the council's transactions accurate and well organized.</p>
+            <p class="organization-description text-sm text-slate-600 mt-4 leading-relaxed">Managed organizational financial records and budgets, keeping the council's transactions accurate and well organized.</p>
           </div>
           <div class="md:col-span-8 grid sm:grid-cols-2 gap-4">
             <div class="img-slot aspect-[4/3]" data-src="assets/images/organization/treasurer-1.jpeg">
@@ -246,7 +551,7 @@
             <h3 class="font-serif text-xl text-slate-900">Junior Staff</h3>
             <p class="text-sm text-slate-500 mt-1">Supervisory Commission, Student Representative Council · 2023</p>
             <p class="text-xs text-slate-400 mt-1">Computer Engineering Student Association, POLBAN</p>
-            <p class="text-sm text-slate-600 mt-4 leading-relaxed">Monitored and evaluated organizational activities, ensured compliance with established guidelines, and coordinated with the Supervisory Commission to support effective organizational oversight and improvement.</p>
+            <p class="organization-description text-sm text-slate-600 mt-4 leading-relaxed">Monitored and evaluated organizational activities, ensured compliance with established guidelines, and coordinated with the Supervisory Commission to support effective organizational oversight and improvement.</p>
           </div>
           <div class="md:col-span-8 grid sm:grid-cols-2 gap-4">
             <div class="img-slot aspect-[4/3]" data-src="assets/images/organization/supervisory-1.jpeg">
@@ -267,7 +572,7 @@
             <h3 class="font-serif text-xl text-slate-900">Facilitator</h3>
             <p class="text-sm text-slate-500 mt-1">PKKMB MANAGHATA · 2023</p>
             <p class="text-xs text-slate-400 mt-1">Politeknik Negeri Bandung</p>
-            <p class="text-sm text-slate-600 mt-4 leading-relaxed">Accompanied and guided new students throughout the orientation program, supporting their adaptation to campus life and coordinating with committee members and fellow facilitators to ensure smooth and orderly activities.</p>
+            <p class="organization-description text-sm text-slate-600 mt-4 leading-relaxed">Accompanied and guided new students throughout the orientation program, supporting their adaptation to campus life and coordinating with committee members and fellow facilitators to ensure smooth and orderly activities.</p>
           </div>
           <div class="md:col-span-8 grid sm:grid-cols-2 gap-4">
             <div class="img-slot aspect-[4/3]" data-src="assets/images/organization/facilitator-1.jpeg">
@@ -291,60 +596,62 @@
     <div class="max-w-6xl mx-auto">
       <h2 class="font-serif text-3xl md:text-4xl text-paper mb-14">Certifications</h2>
 
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="certifications-grid">
 
-        <div class="border border-slate-600 p-5">
-          <div class="img-slot aspect-[3/2] border border-slate-600 mb-4" data-src="assets/images/certificates/sqa-arutala.jpg" data-fit="contain">
-            <div class="img-slot-fallback placeholder-box bg-slate-700/40 w-full h-full flex items-end p-2"><p class="text-[10px] font-mono text-slate-400">certificate scan</p></div>
-          </div>
+        <!-- 2026 -->
+        <div class="certificate-card p-5">
+          <div class="certificate-image border border-slate-600 mb-4"><img src="assets/images/certificates/sqa-arutala.jpg" alt="Junior Software Quality Assurance Certificate, Arutala Lab" loading="lazy"></div>
           <h3 class="font-serif text-lg text-paper leading-snug">Junior Software Quality Assurance Certificate</h3>
           <p class="text-sm text-slate-200 mt-1">Arutala Lab</p>
           <p class="text-xs font-mono text-gold-400 mt-3">Jul 2026 – Jul 2029</p>
         </div>
 
-        <div class="border border-slate-600 p-5">
-          <div class="img-slot aspect-[3/2] border border-slate-600 mb-4" data-src="assets/images/certificates/zaidan-educare.jpeg" data-fit="contain">
-            <div class="img-slot-fallback placeholder-box bg-slate-700/40 w-full h-full flex items-end p-2"><p class="text-[10px] font-mono text-slate-400">certificate scan</p></div>
-          </div>
+        <!-- 2025 -->
+        <div class="certificate-card p-5">
+          <div class="certificate-image border border-slate-600 mb-4"><img src="assets/images/certificates/internship-len.jpg" alt="Frontend Developer Internship Certificate, Len Innovation Technology" loading="lazy"></div>
+          <h3 class="font-serif text-lg text-paper leading-snug">Frontend Developer Internship Certificate</h3>
+          <p class="text-sm text-slate-200 mt-1">Len Innovation Technology</p>
+          <p class="text-xs font-mono text-gold-400 mt-3">Jul 2025 – Oct 2025</p>
+        </div>
+
+        <div class="certificate-card p-5">
+          <div class="certificate-image border border-slate-600 mb-4"><img src="assets/images/certificates/zaidan-educare.jpeg" alt="Community Service Program certificate, Politeknik Negeri Bandung" loading="lazy"></div>
           <h3 class="font-serif text-lg text-paper leading-snug">Community Service Program: School Education Fund Payment Recording Management</h3>
           <p class="text-sm text-slate-200 mt-1">Politeknik Negeri Bandung</p>
           <p class="text-xs font-mono text-gold-400 mt-3">Sep 2025</p>
         </div>
 
-        <div class="border border-slate-600 p-5">
-          <div class="img-slot aspect-[3/4] border border-slate-600 mb-4" data-src="assets/images/certificates/bnsp-web-developer.jpeg" data-fit="contain">
-            <div class="img-slot-fallback placeholder-box bg-slate-700/40 w-full h-full flex items-end p-2"><p class="text-[10px] font-mono text-slate-400">certificate scan</p></div>
+        <div class="certificate-card p-5">
+          <div class="certificate-image border border-slate-600 mb-4">
+            <img src="assets/images/certificates/wadhwani-job-ready.jpg" alt="Job Ready: Employability Skills Certificate, Wadhwani Foundation" loading="lazy">
           </div>
+          <h3 class="font-serif text-lg text-paper leading-snug">Job Ready: Employability Skills</h3>
+          <p class="text-sm text-slate-200 mt-1">Wadhwani Foundation</p>
+          <p class="text-xs font-mono text-gold-400 mt-3">Jun 2025</p>
+        </div>
+
+        <!-- 2023 -->
+        <div class="certificate-card p-5">
+          <div class="certificate-image border border-slate-600 mb-4"><img src="assets/images/certificates/bnsp-web-developer.jpeg" alt="BNSP Junior Web Developer Competency Certificate" loading="lazy"></div>
           <h3 class="font-serif text-lg text-paper leading-snug">BNSP Junior Web Developer Competency Certificate</h3>
           <p class="text-sm text-slate-200 mt-1">Badan Nasional Sertifikasi Profesi (BNSP)</p>
           <p class="text-xs font-mono text-gold-400 mt-3">Oct 2023 – Oct 2026</p>
         </div>
 
-        <div class="border border-slate-600 p-5">
-          <div class="img-slot aspect-[3/4] border border-slate-600 mb-4" data-src="assets/images/certificates/web-programming-cgy.jpeg" data-fit="contain">
-            <div class="img-slot-fallback placeholder-box bg-slate-700/40 w-full h-full flex items-end p-2"><p class="text-[10px] font-mono text-slate-400">certificate scan</p></div>
-          </div>
+        <!-- 2022 -->
+        <div class="certificate-card p-5">
+          <div class="certificate-image border border-slate-600 mb-4"><img src="assets/images/certificates/web-programming-cgy.jpeg" alt="Certification of Competency in Web Programming, Advanced Level" loading="lazy"></div>
           <h3 class="font-serif text-lg text-paper leading-snug">Certification of Competency in Web Programming, Advanced Level</h3>
           <p class="text-sm text-slate-200 mt-1">PT Cakrawala Global Yeksa (CGY)</p>
           <p class="text-xs font-mono text-gold-400 mt-3">Jul 2022</p>
         </div>
 
-        <div class="border border-slate-600 p-5">
-          <div class="img-slot aspect-[3/2] border border-slate-600 mb-4" data-src="assets/images/certificates/internship-titik-terang.jpeg" data-fit="contain">
-            <div class="img-slot-fallback placeholder-box bg-slate-700/40 w-full h-full flex items-end p-2"><p class="text-[10px] font-mono text-slate-400">certificate scan</p></div>
-          </div>
+        <!-- 2021 -->
+        <div class="certificate-card p-5">
+          <div class="certificate-image border border-slate-600 mb-4"><img src="assets/images/certificates/internship-titik-terang.jpeg" alt="Full Stack Developer Internship Certificate, PT Titik Terang Teknologi" loading="lazy"></div>
           <h3 class="font-serif text-lg text-paper leading-snug">Full Stack Developer Internship Certificate</h3>
           <p class="text-sm text-slate-200 mt-1">PT Titik Terang Teknologi</p>
           <p class="text-xs font-mono text-gold-400 mt-3">Jan 2021 – Mar 2021</p>
-        </div>
-
-        <div class="border border-slate-600 p-5">
-          <div class="img-slot aspect-[3/2] border border-slate-600 mb-4" data-src="assets/images/certificates/internship-len.jpg" data-fit="contain">
-            <div class="img-slot-fallback placeholder-box bg-slate-700/40 w-full h-full flex items-end p-2"><p class="text-[10px] font-mono text-slate-400">certificate scan</p></div>
-          </div>
-          <h3 class="font-serif text-lg text-paper leading-snug">Frontend Developer Internship Certificate</h3>
-          <p class="text-sm text-slate-200 mt-1">Len Innovation Technology</p>
-          <p class="text-xs font-mono text-gold-400 mt-3">Jul 2025 – Oct 2025</p>
         </div>
 
       </div>
@@ -392,7 +699,7 @@
             <span class="font-mono text-sm border border-slate-300 text-slate-700 px-3 py-1.5">Database Systems</span>
             <span class="font-mono text-sm border border-slate-300 text-slate-700 px-3 py-1.5">Micro-frontend Architecture</span>
             <span class="font-mono text-sm border border-slate-300 text-slate-700 px-3 py-1.5">Zustand</span>
-            <span class="font-mono text-sm border border-slate-300 text-slate-700 px-3 py-1.5">React Hooks & Component Lifecycle.</span>
+            <span class="font-mono text-sm border border-slate-300 text-slate-700 px-3 py-1.5">React Hooks &amp; Component Lifecycle.</span>
           </div>
 
           <h3 class="text-sm text-slate-400 mb-4 mt-10">Soft skills</h3>
